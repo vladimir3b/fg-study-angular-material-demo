@@ -1,11 +1,17 @@
-import { ICountryModel } from './../../../../data/models/country.model';
 /***
- *    ██████╗  ██████╗  ██████╗ ████████╗
- *    ██╔══██╗██╔═══██╗██╔═══██╗╚══██╔══╝
- *    ██████╔╝██║   ██║██║   ██║   ██║
- *    ██╔══██╗██║   ██║██║   ██║   ██║
- *    ██║  ██║╚██████╔╝╚██████╔╝   ██║
- *    ╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝
+ *    ███╗   ██╗███████╗██╗    ██╗
+ *    ████╗  ██║██╔════╝██║    ██║
+ *    ██╔██╗ ██║█████╗  ██║ █╗ ██║
+ *    ██║╚██╗██║██╔══╝  ██║███╗██║
+ *    ██║ ╚████║███████╗╚███╔███╔╝
+ *    ╚═╝  ╚═══╝╚══════╝ ╚══╝╚══╝
+ *
+ *    ████████╗██████╗ ██╗██████╗
+ *    ╚══██╔══╝██╔══██╗██║██╔══██╗
+ *       ██║   ██████╔╝██║██████╔╝
+ *       ██║   ██╔══██╗██║██╔═══╝
+ *       ██║   ██║  ██║██║██║
+ *       ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝
  *
  *     ██████╗ ██████╗ ███╗   ███╗██████╗  ██████╗ ███╗   ██╗███████╗███╗   ██╗████████╗
  *    ██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔═══██╗████╗  ██║██╔════╝████╗  ██║╚══██╔══╝
@@ -22,19 +28,14 @@ import { ICountryModel } from './../../../../data/models/country.model';
  *    ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝
  *
  */
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-
-// MY IMPORTS
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'fg-root',
-  templateUrl: './root.component.html',
-  styleUrls: ['./root.component.scss']
+  selector: 'fg-new-trip',
+  templateUrl: './new-trip.component.html',
+  styleUrls: ['./new-trip.component.scss']
 })
-export class RootComponent implements OnInit {
+export class NewTripComponent implements OnInit {
 
 /***
  *    ┌─┐┬─┐┌─┐┌─┐┌─┐┬─┐┌┬┐┬┌─┐┌─┐
@@ -42,14 +43,14 @@ export class RootComponent implements OnInit {
  *    ┴  ┴└─└─┘┴  └─┘┴└─ ┴ ┴└─┘└─┘
  */
 
- /***
+/***
  *    ┌─┐┌─┐┌┐┌┌─┐┌┬┐┬─┐┬ ┬┌─┐┌┬┐┌─┐┬─┐
  *    │  │ ││││└─┐ │ ├┬┘│ ││   │ │ │├┬┘
  *    └─┘└─┘┘└┘└─┘ ┴ ┴└─└─┘└─┘ ┴ └─┘┴└─
  */
   public constructor() { }
 
-  /***
+/***
  *    ┬  ┬┌─┐┌─┐
  *    │  │├┤ ├┤
  *    ┴─┘┴└  └─┘
@@ -60,6 +61,13 @@ export class RootComponent implements OnInit {
  *    ├─┤│ ││ │├┴┐└─┐
  *    ┴ ┴└─┘└─┘┴ ┴└─┘
  */
-  public ngOnInit(): void { }
+  public ngOnInit(): void {
+  }
+
+ /***
+ *    ┌┬┐┌─┐┌┬┐┬ ┬┌─┐┌┬┐┌─┐
+ *    │││├┤  │ ├─┤│ │ ││└─┐
+ *    ┴ ┴└─┘ ┴ ┴ ┴└─┘─┴┘└─┘
+ */
 
 }
