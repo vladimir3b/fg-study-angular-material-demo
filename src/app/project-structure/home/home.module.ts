@@ -14,11 +14,13 @@
  *    ╚═╝     ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
  *
  */
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgModule } from '@angular/core';
 
 // MY IMPORTS
 import { HomeComponent } from './components/home/home.component';
+import { MatCardModule } from '@angular/material';
 
 // IMPORT MODULES
 const ANGULAR_FIRE_MODULES = [];
@@ -32,7 +34,9 @@ const KENDO_UI = [];
     ...ANGULAR_FIRE_MODULES,
     ...ANGULAR_MATERIAL,
     ...KENDO_UI,
-    CommonModule
+    CommonModule,
+    FlexLayoutModule,
+    MatCardModule
   ],
   exports: [ HomeComponent ]
 })
