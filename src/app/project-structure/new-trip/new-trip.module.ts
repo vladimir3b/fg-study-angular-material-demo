@@ -27,12 +27,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MatButtonModule,
   MatCardModule,
+  MatDatepickerModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
+  // MatOptionModule,
+  MatSelectModule,
   MatStepperModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // MY IMPORTS
@@ -43,9 +47,13 @@ const ANGULAR_FIRE_MODULES = [];
 const ANGULAR_MATERIAL = [
   MatButtonModule,
   MatCardModule,
+  MatDatepickerModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
+  MatMomentDateModule,
+  // MatOptionModule,
+  MatSelectModule,
   MatStepperModule
 ];
 const KENDO_UI = [];

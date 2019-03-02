@@ -37,11 +37,35 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE
+} from '@angular/material';
+import * as moment from 'moment';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+
+const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'LL',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @Component({
   selector: 'fg-new-trip',
   templateUrl: './new-trip.component.html',
-  styleUrls: ['./new-trip.component.scss']
+  styleUrls: ['./new-trip.component.scss'],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'ro-RO' },
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+  ]
 })
 export class NewTripComponent implements OnInit {
 
@@ -79,7 +103,7 @@ export class NewTripComponent implements OnInit {
     this.personalDataForm = new FormGroup({
       firstName: new FormControl(null, [ Validators.required ]),
       lastName: new FormControl(null, [ Validators.required ]),
-      birthDate: new FormControl(null),
+      birthDate: new FormControl(null, [ Validators.required ]),
       gender: new FormControl(null)
     });
 
@@ -92,8 +116,8 @@ export class NewTripComponent implements OnInit {
 
     // Creating model for Location Data Form
     this.locationDataForm = new FormGroup({
-      country: new FormControl(null),
-      city: new FormControl(null),
+      country: new FormControl(null, [ Validators.required ]),
+      city: new FormControl(null, [ Validators.required ]),
       notes: new FormControl(null)
     });
 

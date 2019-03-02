@@ -46,6 +46,7 @@
         fxLayoutGap="2rem"
         [formGroup]="personalDataForm">
       <ng-template matStepLabel>Personal data</ng-template>
+      <!-- First Name -->
       <mat-form-field>
         <input
             matInput
@@ -56,6 +57,7 @@
           Your first name is required.
         </mat-error>
       </mat-form-field>
+      <!-- Last Name -->
       <mat-form-field>
         <input
             matInput
@@ -66,6 +68,23 @@
           Your last name is required.
         </mat-error>
       </mat-form-field>
+      <!-- Birth Date -->
+      <mat-form-field>
+        <input
+            matInput
+            placeholder="Birth date..."
+            formControlName="birthDate"
+            [matDatepicker]="birthDatePicker">
+        <mat-datepicker-toggle
+            matSuffix
+            [for]="birthDatePicker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #birthDatePicker></mat-datepicker>
+        <mat-error *ngIf="personalDataForm.get('birthDate').errors?.required">
+          Birth date in required!
+        </mat-error>
+      </mat-form-field>
+      <!-- Navigation buttons -->
       <div>
           <button
               color="primary"
@@ -92,6 +111,7 @@
         fxLayoutGap="2rem"
         [formGroup]="contactDataForm">
       <ng-template matStepLabel>Contact data</ng-template>
+      <!-- Phone Number -->
       <mat-form-field>
         <input
             matInput
@@ -102,6 +122,7 @@
           Your phone number is required.
         </mat-error>
       </mat-form-field>
+      <!-- Email -->
       <mat-form-field>
         <input
             matInput
@@ -112,15 +133,21 @@
           Your email is required.
         </mat-error>
       </mat-form-field>
+      <!-- Address -->
       <mat-form-field>
         <textarea
             matInput
+            #addressTextBox
             placeholder="Address..."
             formControlName="address"></textarea>
         <mat-error *ngIf="contactDataForm.get('address').errors?.required">
           Your address is required.
         </mat-error>
+        <mat-hint align="end">
+          You've entered {{ addressTextBox?.value.length }} characters.
+        </mat-hint>
       </mat-form-field>
+      <!-- Navigation buttons -->
       <div>
           <button
               color="primary"
@@ -156,6 +183,7 @@
         fxLayoutGap="2rem"
         [formGroup]="locationDataForm">
       <ng-template matStepLabel>Holiday location data</ng-template>
+      <!-- Country -->
       <mat-form-field>
         <input
             matInput
@@ -166,12 +194,35 @@
           You have to choose a country for your destination.
         </mat-error>
       </mat-form-field>
+      <!-- City -->
+      <mat-form-field>
+        <mat-select formControlName="city" placeholder="Select a town/city...">
+            <mat-option>--</mat-option>
+            <!-- <mat-option
+                *ngFor="let city of countryCities"
+                [value]="city">
+              {{ city }}
+            </mat-option> -->
+        </mat-select>
+        <mat-error>
+          You have to choose a city!
+        </mat-error>
+        <mat-hint>
+          Choose a city/town of the selected country.
+        </mat-hint>
+      </mat-form-field>
+      <!-- Notes -->
       <mat-form-field>
         <textarea
             matInput
-            placeholder="Address..."
+            #notesTextBox
+            placeholder="Notes..."
             formControlName="notes"></textarea>
+        <mat-hint align="end">
+          You've entered {{ notesTextBox?.value.length }} characters.
+        </mat-hint>
       </mat-form-field>
+      <!-- Navigation buttons -->
       <div>
           <button
               color="primary"
@@ -207,6 +258,7 @@
         fxLayoutGap="2rem"
         [formGroup]="travelingDatesForm">
       <ng-template matStepLabel>Departure and arrival dates</ng-template>
+      <!-- Navigation buttons -->
       <div>
           <button
               color="primary"
@@ -240,20 +292,20 @@
         fxLayout="column"
         fxLayoutAlign="center center"
         fxLayoutGap="2rem">
-      <ng-template matStepLabel>Saving data to database</ng-template>
+      <ng-template matStepLabel>Saving to database</ng-template>
+      <!-- Navigation buttons -->
       <div>
-
-          <button
-              color="primary"
-              mat-button
-              matStepperPrevious>
-            Back
-          </button>
-          <button
-              color="primary"
-              mat-button>
-            Submit
-          </button>
+        <button
+            color="primary"
+            mat-button
+            matStepperPrevious>
+          Back
+        </button>
+        <button
+            color="primary"
+            mat-button>
+          Submit
+        </button>
       </div>
     </div>
   </mat-step>
