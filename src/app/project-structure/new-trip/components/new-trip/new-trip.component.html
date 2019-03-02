@@ -28,4 +28,122 @@
  *       ╚═╝   ╚══════╝╚═╝     ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝
  *
  */ -->
- This is NEW-TRIP Component at work...
+<!-- <mat-card class="content-container"> -->
+  <mat-horizontal-stepper linear #stepper>
+
+  <!-- /***
+  *    ┌─┐┌─┐┬─┐┌─┐┌─┐┌┐┌┌─┐┬
+  *    ├─┘├┤ ├┬┘└─┐│ ││││├─┤│
+  *    ┴  └─┘┴└─└─┘└─┘┘└┘┴ ┴┴─┘
+  *    ┌┬┐┌─┐┌┬┐┌─┐
+  *     ││├─┤ │ ├─┤
+  *    ─┴┘┴ ┴ ┴ ┴ ┴
+  */ -->
+    <mat-step>
+      <div>
+        <ng-template matStepLabel>Personal data</ng-template>
+        <div>
+            <button
+                color="primary"
+                mat-button
+                matStepperNext>
+              Next
+            </button>
+        </div>
+      </div>
+    </mat-step>
+
+  <!-- /***
+  *    ┬ ┬┌─┐┬  ┬┌┬┐┌─┐┬ ┬
+  *    ├─┤│ ││  │ ││├─┤└┬┘
+  *    ┴ ┴└─┘┴─┘┴─┴┘┴ ┴ ┴
+  *    ┬  ┌─┐┌─┐┌─┐┌┬┐┬┌─┐┌┐┌
+  *    │  │ ││  ├─┤ │ ││ ││││
+  *    ┴─┘└─┘└─┘┴ ┴ ┴ ┴└─┘┘└┘
+  *    ┌┬┐┌─┐┌┬┐┌─┐
+  *     ││├─┤ │ ├─┤
+  *    ─┴┘┴ ┴ ┴ ┴ ┴
+  */ -->
+    <mat-step>
+      <div>
+        <ng-template matStepLabel>Holiday location data</ng-template>
+        <div>
+            <button
+                color="primary"
+                mat-button
+                matStepperPrevious>
+              Back
+            </button>
+            <button
+                color="primary"
+                mat-button
+                matStepperNext>
+              Next
+            </button>
+        </div>
+      </div>
+    </mat-step>
+
+  <!-- /***
+  *    ┌┬┐┌─┐┌─┐┌─┐┬─┐┌┬┐┬ ┬┬─┐┌─┐
+  *     ││├┤ ├─┘├─┤├┬┘ │ │ │├┬┘├┤
+  *    ─┴┘└─┘┴  ┴ ┴┴└─ ┴ └─┘┴└─└─┘
+  *    ┌─┐┌┐┌┌┬┐  ┌─┐┬─┐┬─┐┬┬  ┬┌─┐┬
+  *    ├─┤│││ ││  ├─┤├┬┘├┬┘│└┐┌┘├─┤│
+  *    ┴ ┴┘└┘─┴┘  ┴ ┴┴└─┴└─┴ └┘ ┴ ┴┴─┘
+  *    ┌┬┐┌─┐┌┬┐┌─┐┌─┐
+  *     ││├─┤ │ ├┤ └─┐
+  *    ─┴┘┴ ┴ ┴ └─┘└─┘
+  */ -->
+    <mat-step>
+      <div>
+        <ng-template matStepLabel>Departure and arrival dates</ng-template>
+        <div>
+            <button
+                color="primary"
+                mat-button
+                matStepperPrevious>
+              Back
+            </button>
+            <button
+                color="primary"
+                mat-button
+                matStepperNext>
+              Next
+            </button>
+        </div>
+      </div>
+    </mat-step>
+
+  <!-- /***
+  *    ┌─┐┌─┐┬  ┬┬┌┐┌┌─┐
+  *    └─┐├─┤└┐┌┘│││││ ┬
+  *    └─┘┴ ┴ └┘ ┴┘└┘└─┘
+  *    ┌┬┐┌─┐┌┬┐┌─┐
+  *     ││├─┤ │ ├─┤
+  *    ─┴┘┴ ┴ ┴ ┴ ┴
+  *    ┌┬┐┌─┐  ┌┬┐┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+  *     │ │ │   ││├─┤ │ ├─┤├┴┐├─┤└─┐├┤
+  *     ┴ └─┘  ─┴┘┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
+  */ -->
+    <mat-step>
+      <div>
+        <ng-template matStepLabel>Saving data to database</ng-template>
+        <div>
+            <button
+                color="primary"
+                mat-button
+                matStepperPrevious>
+              Back
+            </button>
+            <button
+                color="primary"
+                mat-button>
+              Submit
+            </button>
+        </div>
+      </div>
+    </mat-step>
+
+  </mat-horizontal-stepper>
+<!-- </mat-card> -->

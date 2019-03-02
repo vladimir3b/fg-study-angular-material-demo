@@ -16,15 +16,17 @@
  */
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 
 // MY IMPORTS
 import { HomeComponent } from './components/home/home.component';
-import { MatCardModule } from '@angular/material';
 
 // IMPORT MODULES
 const ANGULAR_FIRE_MODULES = [];
-const ANGULAR_MATERIAL = [];
+const ANGULAR_MATERIAL = [
+  MatCardModule
+];
 const KENDO_UI = [];
 
 // MODULE DECLARATION
@@ -35,8 +37,7 @@ const KENDO_UI = [];
     ...ANGULAR_MATERIAL,
     ...KENDO_UI,
     CommonModule,
-    FlexLayoutModule,
-    MatCardModule
+    FlexLayoutModule
   ],
   exports: [ HomeComponent ]
 })
