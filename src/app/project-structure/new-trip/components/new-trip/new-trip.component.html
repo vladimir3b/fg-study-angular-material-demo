@@ -28,122 +28,234 @@
  *       ╚═╝   ╚══════╝╚═╝     ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝
  *
  */ -->
-<!-- <mat-card class="content-container"> -->
-  <mat-horizontal-stepper linear #stepper>
 
-  <!-- /***
-  *    ┌─┐┌─┐┬─┐┌─┐┌─┐┌┐┌┌─┐┬
-  *    ├─┘├┤ ├┬┘└─┐│ ││││├─┤│
-  *    ┴  └─┘┴└─└─┘└─┘┘└┘┴ ┴┴─┘
-  *    ┌┬┐┌─┐┌┬┐┌─┐
-  *     ││├─┤ │ ├─┤
-  *    ─┴┘┴ ┴ ┴ ┴ ┴
-  */ -->
-    <mat-step>
+<mat-horizontal-stepper linear #stepper>
+
+<!-- /***
+*    ┌─┐┌─┐┬─┐┌─┐┌─┐┌┐┌┌─┐┬
+*    ├─┘├┤ ├┬┘└─┐│ ││││├─┤│
+*    ┴  └─┘┴└─└─┘└─┘┘└┘┴ ┴┴─┘
+*    ┌┬┐┌─┐┌┬┐┌─┐
+*     ││├─┤ │ ├─┤
+*    ─┴┘┴ ┴ ┴ ┴ ┴
+*/ -->
+  <mat-step [stepControl]="personalDataForm">
+    <form
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="2rem"
+        [formGroup]="personalDataForm">
+      <ng-template matStepLabel>Personal data</ng-template>
+      <mat-form-field>
+        <input
+            matInput
+            placeholder="First name..."
+            formControlName="firstName"
+            type="text">
+        <mat-error *ngIf="personalDataForm.get('firstName').errors?.required">
+          Your first name is required.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+            matInput
+            placeholder="Last name..."
+            formControlName="lastName"
+            type="text">
+        <mat-error *ngIf="personalDataForm.get('lastName').errors?.required">
+          Your last name is required.
+        </mat-error>
+      </mat-form-field>
       <div>
-        <ng-template matStepLabel>Personal data</ng-template>
-        <div>
-            <button
-                color="primary"
-                mat-button
-                matStepperNext>
-              Next
-            </button>
-        </div>
+          <button
+              color="primary"
+              mat-button
+              matStepperNext>
+            Next
+          </button>
       </div>
-    </mat-step>
+    </form>
+  </mat-step>
 
-  <!-- /***
-  *    ┬ ┬┌─┐┬  ┬┌┬┐┌─┐┬ ┬
-  *    ├─┤│ ││  │ ││├─┤└┬┘
-  *    ┴ ┴└─┘┴─┘┴─┴┘┴ ┴ ┴
-  *    ┬  ┌─┐┌─┐┌─┐┌┬┐┬┌─┐┌┐┌
-  *    │  │ ││  ├─┤ │ ││ ││││
-  *    ┴─┘└─┘└─┘┴ ┴ ┴ ┴└─┘┘└┘
-  *    ┌┬┐┌─┐┌┬┐┌─┐
-  *     ││├─┤ │ ├─┤
-  *    ─┴┘┴ ┴ ┴ ┴ ┴
-  */ -->
-    <mat-step>
+<!-- /***
+*    ┌─┐┌─┐┌┐┌┌┬┐┌─┐┌─┐┌┬┐
+*    │  │ ││││ │ ├─┤│   │
+*    └─┘└─┘┘└┘ ┴ ┴ ┴└─┘ ┴
+*    ┌┬┐┌─┐┌┬┐┌─┐
+*     ││├─┤ │ ├─┤
+*    ─┴┘┴ ┴ ┴ ┴ ┴
+*/ -->
+  <mat-step [stepControl]="contactDataForm">
+    <form
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="2rem"
+        [formGroup]="contactDataForm">
+      <ng-template matStepLabel>Contact data</ng-template>
+      <mat-form-field>
+        <input
+            matInput
+            placeholder="Phone number..."
+            formControlName="phoneNumber"
+            type="text">
+        <mat-error *ngIf="contactDataForm.get('phoneNumber').errors?.required">
+          Your phone number is required.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+            matInput
+            placeholder="Email..."
+            formControlName="email"
+            type="text">
+        <mat-error *ngIf="contactDataForm.get('email').errors?.required">
+          Your email is required.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea
+            matInput
+            placeholder="Address..."
+            formControlName="address"></textarea>
+        <mat-error *ngIf="contactDataForm.get('address').errors?.required">
+          Your address is required.
+        </mat-error>
+      </mat-form-field>
       <div>
-        <ng-template matStepLabel>Holiday location data</ng-template>
-        <div>
-            <button
-                color="primary"
-                mat-button
-                matStepperPrevious>
-              Back
-            </button>
-            <button
-                color="primary"
-                mat-button
-                matStepperNext>
-              Next
-            </button>
-        </div>
+          <button
+              color="primary"
+              mat-button
+              matStepperPrevious>
+            Back
+          </button>
+          <button
+              color="primary"
+              mat-button
+              matStepperNext>
+            Next
+          </button>
       </div>
-    </mat-step>
+    </form>
+  </mat-step>
 
-  <!-- /***
-  *    ┌┬┐┌─┐┌─┐┌─┐┬─┐┌┬┐┬ ┬┬─┐┌─┐
-  *     ││├┤ ├─┘├─┤├┬┘ │ │ │├┬┘├┤
-  *    ─┴┘└─┘┴  ┴ ┴┴└─ ┴ └─┘┴└─└─┘
-  *    ┌─┐┌┐┌┌┬┐  ┌─┐┬─┐┬─┐┬┬  ┬┌─┐┬
-  *    ├─┤│││ ││  ├─┤├┬┘├┬┘│└┐┌┘├─┤│
-  *    ┴ ┴┘└┘─┴┘  ┴ ┴┴└─┴└─┴ └┘ ┴ ┴┴─┘
-  *    ┌┬┐┌─┐┌┬┐┌─┐┌─┐
-  *     ││├─┤ │ ├┤ └─┐
-  *    ─┴┘┴ ┴ ┴ └─┘└─┘
-  */ -->
-    <mat-step>
+<!-- /***
+*    ┬ ┬┌─┐┬  ┬┌┬┐┌─┐┬ ┬
+*    ├─┤│ ││  │ ││├─┤└┬┘
+*    ┴ ┴└─┘┴─┘┴─┴┘┴ ┴ ┴
+*    ┬  ┌─┐┌─┐┌─┐┌┬┐┬┌─┐┌┐┌
+*    │  │ ││  ├─┤ │ ││ ││││
+*    ┴─┘└─┘└─┘┴ ┴ ┴ ┴└─┘┘└┘
+*    ┌┬┐┌─┐┌┬┐┌─┐
+*     ││├─┤ │ ├─┤
+*    ─┴┘┴ ┴ ┴ ┴ ┴
+*/ -->
+  <mat-step [stepControl]="locationDataForm">
+    <form
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="2rem"
+        [formGroup]="locationDataForm">
+      <ng-template matStepLabel>Holiday location data</ng-template>
+      <mat-form-field>
+        <input
+            matInput
+            placeholder="Choose a country..."
+            formControlName="country"
+            type="text">
+        <mat-error *ngIf="locationDataForm.get('country').errors?.required">
+          You have to choose a country for your destination.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea
+            matInput
+            placeholder="Address..."
+            formControlName="notes"></textarea>
+      </mat-form-field>
       <div>
-        <ng-template matStepLabel>Departure and arrival dates</ng-template>
-        <div>
-            <button
-                color="primary"
-                mat-button
-                matStepperPrevious>
-              Back
-            </button>
-            <button
-                color="primary"
-                mat-button
-                matStepperNext>
-              Next
-            </button>
-        </div>
+          <button
+              color="primary"
+              mat-button
+              matStepperPrevious>
+            Back
+          </button>
+          <button
+              color="primary"
+              mat-button
+              matStepperNext>
+            Next
+          </button>
       </div>
-    </mat-step>
+    </form>
+  </mat-step>
 
-  <!-- /***
-  *    ┌─┐┌─┐┬  ┬┬┌┐┌┌─┐
-  *    └─┐├─┤└┐┌┘│││││ ┬
-  *    └─┘┴ ┴ └┘ ┴┘└┘└─┘
-  *    ┌┬┐┌─┐┌┬┐┌─┐
-  *     ││├─┤ │ ├─┤
-  *    ─┴┘┴ ┴ ┴ ┴ ┴
-  *    ┌┬┐┌─┐  ┌┬┐┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
-  *     │ │ │   ││├─┤ │ ├─┤├┴┐├─┤└─┐├┤
-  *     ┴ └─┘  ─┴┘┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
-  */ -->
-    <mat-step>
+<!-- /***
+*    ┌┬┐┌─┐┌─┐┌─┐┬─┐┌┬┐┬ ┬┬─┐┌─┐
+*     ││├┤ ├─┘├─┤├┬┘ │ │ │├┬┘├┤
+*    ─┴┘└─┘┴  ┴ ┴┴└─ ┴ └─┘┴└─└─┘
+*    ┌─┐┌┐┌┌┬┐  ┌─┐┬─┐┬─┐┬┬  ┬┌─┐┬
+*    ├─┤│││ ││  ├─┤├┬┘├┬┘│└┐┌┘├─┤│
+*    ┴ ┴┘└┘─┴┘  ┴ ┴┴└─┴└─┴ └┘ ┴ ┴┴─┘
+*    ┌┬┐┌─┐┌┬┐┌─┐┌─┐
+*     ││├─┤ │ ├┤ └─┐
+*    ─┴┘┴ ┴ ┴ └─┘└─┘
+*/ -->
+  <mat-step [stepControl]="travelingDatesForm">
+    <form
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="2rem"
+        [formGroup]="travelingDatesForm">
+      <ng-template matStepLabel>Departure and arrival dates</ng-template>
       <div>
-        <ng-template matStepLabel>Saving data to database</ng-template>
-        <div>
-            <button
-                color="primary"
-                mat-button
-                matStepperPrevious>
-              Back
-            </button>
-            <button
-                color="primary"
-                mat-button>
-              Submit
-            </button>
-        </div>
+          <button
+              color="primary"
+              mat-button
+              matStepperPrevious>
+            Back
+          </button>
+          <button
+              color="primary"
+              mat-button
+              matStepperNext>
+            Next
+          </button>
       </div>
-    </mat-step>
+    </form>
+  </mat-step>
 
-  </mat-horizontal-stepper>
-<!-- </mat-card> -->
+<!-- /***
+*    ┌─┐┌─┐┬  ┬┬┌┐┌┌─┐
+*    └─┐├─┤└┐┌┘│││││ ┬
+*    └─┘┴ ┴ └┘ ┴┘└┘└─┘
+*    ┌┬┐┌─┐┌┬┐┌─┐
+*     ││├─┤ │ ├─┤
+*    ─┴┘┴ ┴ ┴ ┴ ┴
+*    ┌┬┐┌─┐  ┌┬┐┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐
+*     │ │ │   ││├─┤ │ ├─┤├┴┐├─┤└─┐├┤
+*     ┴ └─┘  ─┴┘┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘
+*/ -->
+  <mat-step>
+    <div
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="2rem">
+      <ng-template matStepLabel>Saving data to database</ng-template>
+      <div>
+
+          <button
+              color="primary"
+              mat-button
+              matStepperPrevious>
+            Back
+          </button>
+          <button
+              color="primary"
+              mat-button>
+            Submit
+          </button>
+      </div>
+    </div>
+  </mat-step>
+
+</mat-horizontal-stepper>
