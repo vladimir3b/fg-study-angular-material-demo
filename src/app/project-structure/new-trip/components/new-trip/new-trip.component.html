@@ -29,7 +29,7 @@
  *
  */ -->
 
-<mat-horizontal-stepper linear #stepper>
+<mat-horizontal-stepper nonlinear #stepper>
 
 <!-- /***
 *    ┌─┐┌─┐┬─┐┌─┐┌─┐┌┐┌┌─┐┬
@@ -287,13 +287,12 @@
         [formGroup]="travelingDatesForm">
       <ng-template matStepLabel>Departure and arrival dates</ng-template>
        <!-- Departure Date And Time -->
-       <div>
-         <mat-form-field>
-          <input
-              matInput
-              placeholder="Departure date..."
-              formControlName="departureDate"
-              [matDatepicker]="departureDatePicker">
+      <mat-form-field>
+        <input
+            matInput
+            placeholder="Departure date..."
+            formControlName="departureDate"
+            [matDatepicker]="departureDatePicker">
           <mat-datepicker-toggle
               matSuffix
               [for]="departureDatePicker">
@@ -303,22 +302,32 @@
             Departure date in required!
           </mat-error>
         </mat-form-field>
-       </div>
+        <kendo-timepicker
+            formControlName="departureTime"
+            [fgTimepickerHint]="{
+              placeholder: 'Departure time...',
+              hint: [ '', 'Departure time is required!' ]
+            }"
+            placeholder="Departure time..."
+            [nowButton]="false"
+            format="HH:mm:ss"
+            [cancelButton]="false"
+            [popupSettings]="{animate: false}"
+            [formatPlaceholder]="{ hour: 'hh', minute: 'mm', second: 'ss' }">
+        </kendo-timepicker>
       <!-- Arrival Date And Time -->
-      <div>
-        <mat-form-field>
-          <input
-              matInput
-              placeholder="Arrival date..."
-              formControlName="arrivalDate"
-              [matDatepicker]="arrivalDatePicker">
-          <mat-datepicker-toggle
-              matSuffix
-              [for]="arrivalDatePicker">
-          </mat-datepicker-toggle>
-          <mat-datepicker #arrivalDatePicker></mat-datepicker>
-        </mat-form-field>
-      </div>
+      <mat-form-field>
+        <input
+            matInput
+            placeholder="Arrival date..."
+            formControlName="arrivalDate"
+            [matDatepicker]="arrivalDatePicker">
+        <mat-datepicker-toggle
+            matSuffix
+            [for]="arrivalDatePicker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #arrivalDatePicker></mat-datepicker>
+      </mat-form-field>
       <!-- Navigation buttons -->
       <div>
           <button

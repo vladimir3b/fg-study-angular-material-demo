@@ -38,6 +38,8 @@ import {
 import { NgModule } from '@angular/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TimepickerHintDirective } from './directives/timepicker-hint.directive';
+import { TimePickerModule } from '@progress/kendo-angular-dateinputs';
 
 // MY IMPORTS
 import { NewTripComponent } from './components/new-trip/new-trip.component';
@@ -56,11 +58,16 @@ const ANGULAR_MATERIAL = [
   MatSelectModule,
   MatStepperModule
 ];
-const KENDO_UI = [];
+const KENDO_UI = [
+  TimePickerModule,
+];
 
 // MODULE DECLARATION
 @NgModule({
-  declarations: [ NewTripComponent ],
+  declarations: [
+    NewTripComponent,
+    TimepickerHintDirective
+  ],
   imports: [
     ...ANGULAR_FIRE_MODULES,
     ...ANGULAR_MATERIAL,

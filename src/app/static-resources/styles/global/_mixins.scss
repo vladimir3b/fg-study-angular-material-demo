@@ -52,3 +52,22 @@
     0 10px 10px rgba(0,0,0,.2),
     0 20px 20px rgba(0,0,0,.15);
 }
+
+
+@mixin timepicker-hint($color) {
+  span {
+    input {
+      &::placeholder {
+        color: $color;
+      }
+      color: $color !important;
+    }
+    // color: black;
+    border-color: $color;
+  }
+  div {
+    font-size: 75%;
+    color:$color
+  }
+  display: block;
+}

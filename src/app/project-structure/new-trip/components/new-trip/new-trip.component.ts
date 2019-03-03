@@ -30,7 +30,8 @@
  */
 import {
   Component,
-  OnInit
+  OnInit,
+  ViewChild
 } from '@angular/core';
 import {
   FormControl,
@@ -44,6 +45,7 @@ import {
 } from '@angular/material';
 import * as moment from 'moment';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { TimePickerComponent } from '@progress/kendo-angular-dateinputs';
 
 const MY_FORMATS = {
   parse: {
@@ -79,6 +81,7 @@ export class NewTripComponent implements OnInit {
   public personalDataFormSent: boolean;
   public locationDataForm: FormGroup;
   public travelingDatesForm: FormGroup;
+  @ViewChild('departureTimePicker') departureTimeElement: TimePickerComponent;
 
 
 /***
@@ -127,16 +130,19 @@ export class NewTripComponent implements OnInit {
     // Creating model for Traveling Dates Form
     this.travelingDatesForm = new FormGroup({
       departureDate: new FormControl(null, [ Validators.required ]),
-      departureHour: new FormControl(null),
+      departureTime: new FormControl(null, [ Validators.required ]),
       arrivalDate: new FormControl(null),
       arrivalHour: new FormControl(null)
     });
-}
+    this.travelingDatesForm.get('departureTime').
+  }
 
- /***
- *    ┌┬┐┌─┐┌┬┐┬ ┬┌─┐┌┬┐┌─┐
- *    │││├┤  │ ├─┤│ │ ││└─┐
- *    ┴ ┴└─┘ ┴ ┴ ┴└─┘─┴┘└─┘
- */
+
+
+  /***
+   *    ┌┬┐┌─┐┌┬┐┬ ┬┌─┐┌┬┐┌─┐
+   *    │││├┤  │ ├─┤│ │ ││└─┐
+   *    ┴ ┴└─┘ ┴ ┴ ┴└─┘─┴┘└─┘
+   */
 
 }
