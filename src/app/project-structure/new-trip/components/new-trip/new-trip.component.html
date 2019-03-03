@@ -68,6 +68,25 @@
           Your last name is required.
         </mat-error>
       </mat-form-field>
+      <!-- Gender -->
+      <mat-radio-group
+          formControlName="gender"
+          fxLayout="row wrap"
+          fxLayoutGap="2rem">
+        <mat-radio-button
+            [ngClass]="{ genderInvalid: personalDataForm.get('gender').errors?.required && personalDataFormSent }"
+            value="male">
+          Male
+        </mat-radio-button>
+        <mat-radio-button
+            [ngClass]="{ genderInvalid: personalDataForm.get('gender').errors?.required && personalDataFormSent }"
+            value="female">
+          Female
+        </mat-radio-button>
+        <mat-error *ngIf="personalDataForm.get('gender').errors?.required && personalDataFormSent">
+          Gender is required.
+        </mat-error>
+      </mat-radio-group>
       <!-- Birth Date -->
       <mat-form-field>
         <input
@@ -87,8 +106,16 @@
       <!-- Navigation buttons -->
       <div>
           <button
+              disabled
               color="primary"
               mat-button
+              matStepperPrevious>
+            Back
+          </button>
+          <button
+              color="primary"
+              mat-button
+              (click)="personalDataFormSent=true"
               matStepperNext>
             Next
           </button>
@@ -198,6 +225,7 @@
       <mat-form-field>
         <mat-select formControlName="city" placeholder="Select a town/city...">
             <mat-option>--</mat-option>
+            <mat-option value="Bucharest">Bucharest</mat-option>
             <!-- <mat-option
                 *ngFor="let city of countryCities"
                 [value]="city">
@@ -258,6 +286,39 @@
         fxLayoutGap="2rem"
         [formGroup]="travelingDatesForm">
       <ng-template matStepLabel>Departure and arrival dates</ng-template>
+       <!-- Departure Date And Time -->
+       <div>
+         <mat-form-field>
+          <input
+              matInput
+              placeholder="Departure date..."
+              formControlName="departureDate"
+              [matDatepicker]="departureDatePicker">
+          <mat-datepicker-toggle
+              matSuffix
+              [for]="departureDatePicker">
+          </mat-datepicker-toggle>
+          <mat-datepicker #departureDatePicker></mat-datepicker>
+          <mat-error *ngIf="travelingDatesForm.get('departureDate').errors?.required">
+            Departure date in required!
+          </mat-error>
+        </mat-form-field>
+       </div>
+      <!-- Arrival Date And Time -->
+      <div>
+        <mat-form-field>
+          <input
+              matInput
+              placeholder="Arrival date..."
+              formControlName="arrivalDate"
+              [matDatepicker]="arrivalDatePicker">
+          <mat-datepicker-toggle
+              matSuffix
+              [for]="arrivalDatePicker">
+          </mat-datepicker-toggle>
+          <mat-datepicker #arrivalDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
       <!-- Navigation buttons -->
       <div>
           <button
@@ -293,6 +354,12 @@
         fxLayoutAlign="center center"
         fxLayoutGap="2rem">
       <ng-template matStepLabel>Saving to database</ng-template>
+      <div>
+        You've complete the traveling form.
+      </div>
+      <div>
+          Press submit to send your data.
+      </div>
       <!-- Navigation buttons -->
       <div>
         <button

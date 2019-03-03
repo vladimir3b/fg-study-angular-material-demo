@@ -74,8 +74,9 @@ export class NewTripComponent implements OnInit {
  *    ├─┘├┬┘│ │├─┘├┤ ├┬┘ │ │├┤ └─┐
  *    ┴  ┴└─└─┘┴  └─┘┴└─ ┴ ┴└─┘└─┘
  */
-  public personalDataForm: FormGroup;
   public contactDataForm: FormGroup;
+  public personalDataForm: FormGroup;
+  public personalDataFormSent: boolean;
   public locationDataForm: FormGroup;
   public travelingDatesForm: FormGroup;
 
@@ -85,7 +86,9 @@ export class NewTripComponent implements OnInit {
  *    │  │ ││││└─┐ │ ├┬┘│ ││   │ │ │├┬┘
  *    └─┘└─┘┘└┘└─┘ ┴ ┴└─└─┘└─┘ ┴ └─┘┴└─
  */
-  public constructor() { }
+  public constructor() {
+    this.personalDataFormSent = false;
+  }
 
 /***
  *    ┬  ┬┌─┐┌─┐
@@ -104,7 +107,7 @@ export class NewTripComponent implements OnInit {
       firstName: new FormControl(null, [ Validators.required ]),
       lastName: new FormControl(null, [ Validators.required ]),
       birthDate: new FormControl(null, [ Validators.required ]),
-      gender: new FormControl(null)
+      gender: new FormControl(null, [ Validators.required ])
     });
 
     // Creating model for Contact Data Form
@@ -123,7 +126,7 @@ export class NewTripComponent implements OnInit {
 
     // Creating model for Traveling Dates Form
     this.travelingDatesForm = new FormGroup({
-      departureDate: new FormControl(null),
+      departureDate: new FormControl(null, [ Validators.required ]),
       departureHour: new FormControl(null),
       arrivalDate: new FormControl(null),
       arrivalHour: new FormControl(null)

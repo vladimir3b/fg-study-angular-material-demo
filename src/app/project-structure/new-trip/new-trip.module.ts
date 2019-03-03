@@ -31,9 +31,9 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  // MatOptionModule,
   MatSelectModule,
-  MatStepperModule
+  MatStepperModule,
+  MatRadioModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -52,7 +52,7 @@ const ANGULAR_MATERIAL = [
   MatIconModule,
   MatInputModule,
   MatMomentDateModule,
-  // MatOptionModule,
+  MatRadioModule,
   MatSelectModule,
   MatStepperModule
 ];
